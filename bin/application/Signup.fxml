@@ -47,7 +47,7 @@
                   <Font name="Times New Roman Bold Italic" size="22.0" />
                </font>
             </Label>
-            <Button fx:id="con" layoutX="673.0" layoutY="445.0" mnemonicParsing="false" onAction="#open1" prefHeight="59.0" prefWidth="212.0" style="-fx-background-color: #fbcb7b;" text="CONFIRM">
+            <Button fx:id="con" layoutX="673.0" layoutY="445.0" mnemonicParsing="false" onAction="#open1" prefHeight="45.0" prefWidth="212.0" style="-fx-background-color: #fbcb7b;" text="CONFIRM">
                <font>
                   <Font name="Georgia Bold" size="28.0" />
                </font>
@@ -56,6 +56,7 @@
             <TextField fx:id="c" layoutX="71.0" layoutY="206.0" prefHeight="31.0" prefWidth="202.0" promptText="Enter Job Position/Student" />
             <TextField fx:id="d" layoutX="71.0" layoutY="290.0" prefHeight="31.0" prefWidth="202.0" promptText="Enter Email ID" />
             <TextField fx:id="e" layoutX="71.0" layoutY="378.0" prefHeight="31.0" prefWidth="202.0" promptText="Enter Password" />
+            <TextField layoutX="71.0" layoutY="475.0" prefHeight="31.0" prefWidth="202.0" promptText="Enter Path to PDF File" />
          </children>
       </AnchorPane>
    </children>
