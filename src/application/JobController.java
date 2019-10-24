@@ -20,13 +20,13 @@ public class JobController
 							"A place where over 10,000 Software Engineers\n"+
 							"have found their ideal dream jobs in their desired\n"+
 							"field of specification. Now it's your turn!\n"+
-							"Click on 'GET STARTED!' to continue.";
+							"Click on either 'Login' or 'Sign Up' to continue!";
 	@FXML
 	Label label;
 	@FXML
 	AnchorPane ap;
 	@FXML
-	Button btn;
+	Button login, signup;
 	public void initialize() throws IOException
 	{
 		label.setText(a);
@@ -34,10 +34,21 @@ public class JobController
 		label.setStyle("-fx-font-family: \" Monospaced \"; -fx-font-size: 20; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-style: italic;");
 	}
 	
-	  public void open(ActionEvent e) throws IOException
+	  public void open1(ActionEvent e) throws IOException
 		{
 		  	Stage primaryStage=new Stage();
 			Parent root=FXMLLoader.load(getClass().getResource("Signup.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		  
+		}
+	  
+	  public void open2(ActionEvent e1) throws IOException
+		{
+		  	Stage primaryStage=new Stage();
+			Parent root=FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
