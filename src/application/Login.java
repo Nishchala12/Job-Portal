@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -21,9 +22,11 @@ import javafx.stage.Stage;
 public class Login {
 	
 	@FXML
-	TextField username = new  TextField();
+	TextField username = new TextField();
 	@FXML
-	TextField password = new  TextField();
+	Button login2;
+	@FXML
+	PasswordField password = new  PasswordField();
 	
 	static Connection connect=null;
 	static String DatabaseName="student";
@@ -36,6 +39,7 @@ public class Login {
 	{
 		  Class.forName("com.mysql.jdbc.Driver").newInstance();
 		  connect=DriverManager.getConnection(url,user,pass);
+		  username.setFocusTraversable(false);
 
 	}
 	
@@ -79,12 +83,16 @@ public class Login {
         alerts.setContentText("User Logged In Successfully!");
         alerts.showAndWait();
         
+        
         Stage primaryStage=new Stage();
-		Parent root=FXMLLoader.load(getClass().getResource("Info.fxml"));
+		Parent root=FXMLLoader.load(getClass().getResource("Choice.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		Stage primstage = (Stage) login2.getScene().getWindow();
+   		primstage.close();
 
 		}
 		

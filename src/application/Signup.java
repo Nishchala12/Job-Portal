@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class Signup
 	@FXML
 	TextField username = new TextField();
 	@FXML
-	TextField password = new TextField();
+	PasswordField password = new PasswordField();
 	@FXML
 	TextField resume = new TextField();
 	
@@ -74,6 +75,16 @@ public class Signup
 		      return;
 		  }
 		  
+		  if(s2.length()<8)
+		  {
+			  Alert alerts=new Alert(AlertType.WARNING);
+		      alerts.setTitle("Warning Dialog");
+		      alerts.setHeaderText(null);
+		      alerts.setContentText("Password must be at least 8 characters long!");
+		      alerts.showAndWait();
+		      return;
+			  
+		  }
 		  String sq2 = "select * from Table1 where Username=?";
 		  PreparedStatement p0 = connect.prepareStatement(sq2);
 		  p0.setString(1,s1);
@@ -109,12 +120,8 @@ public class Signup
 	        alerts.setContentText("User Signed Up Successfully!");
 	        alerts.showAndWait();
 
-		  	Stage primaryStage=new Stage();
-			Parent root=FXMLLoader.load(getClass().getResource("Choice.fxml"));
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
+	        Stage primstage = (Stage) con.getScene().getWindow();
+	   		primstage.close();
 		  
 		}
 

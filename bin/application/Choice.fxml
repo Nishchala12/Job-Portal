@@ -36,7 +36,7 @@
                   <Font name="Georgia Bold" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="ml" layoutX="535.0" layoutY="307.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="331.0" text="MACHINE LEARNING">
+            <Button fx:id="ml" layoutX="535.0" layoutY="307.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="331.0" text="ARTIFICIAL INTELLIGENCE">
                <font>
                   <Font name="Georgia Bold" size="20.0" />
                </font>
