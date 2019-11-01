@@ -1,6 +1,9 @@
 package application;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,8 +30,19 @@ public class JobController
 	AnchorPane ap;
 	@FXML
 	Button login, signup;
-	public void initialize() throws IOException
+	
+	static Connection connect=null;
+	static String DatabaseName="student";
+	static String url = "jdbc:mysql://localhost:3306/" + DatabaseName;
+	static String user="root";
+	static String pass="Nishchala123";
+	
+	
+	public void initialize() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
 	{
+		
+		Class.forName("com.mysql.jdbc.Driver").newInstance();
+		connect=DriverManager.getConnection(url,user,pass);
 		label.setText(a);
 		label.setWrapText(true);
 		label.setStyle("-fx-font-family: \" Monospaced \"; -fx-font-size: 20; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-style: italic;");

@@ -1,26 +1,114 @@
 package application;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class Signup 
 {
 	@FXML
 	Button con;
-	public void initialize() throws IOException
+	@FXML
+	TextField name = new TextField();
+	@FXML
+	TextField prof = new TextField();
+	@FXML
+	TextField username = new TextField();
+	@FXML
+	TextField password = new TextField();
+	@FXML
+	TextField resume = new TextField();
+	
+	
+	static Connection connect=null;
+	static String DatabaseName="student";
+	static String url = "jdbc:mysql://localhost:3306/" + DatabaseName;
+	static String user="root";
+	static String pass="Nishchala123";
+	
+	public void initialize() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
 	{
+		  Class.forName("com.mysql.jdbc.Driver").newInstance();
+		  connect=DriverManager.getConnection(url,user,pass);
+
 		
 	}
 	
-	  public void open1(ActionEvent e) throws IOException
+	  public void open1(ActionEvent e) throws IOException, SQLException
 		{
+		  
+		  String s1 = "";
+		  String s2 = "";
+		  String nam = "";
+		  String profession = "";
+		  String r="";
+		  s1 = username.getText();
+		  s2 = password.getText();
+		  nam = name.getText();
+		  profession = prof.getText();
+		  r = resume.getText();
+		  
+		  
+		  if(s1.equals("")||s2.equals("")||nam.equals("")||profession.equals("")||r.equals(""))
+		  {
+			  Alert alerts=new Alert(AlertType.WARNING);
+		      alerts.setTitle("Warning Dialog");
+		      alerts.setHeaderText(null);
+		      alerts.setContentText("Kindly enter all the fields!");
+		      alerts.showAndWait();
+		      return;
+		  }
+		  
+		  String sq2 = "select * from Table1 where Username=?";
+		  PreparedStatement p0 = connect.prepareStatement(sq2);
+		  p0.setString(1,s1);
+		  final ResultSet result1 = p0.executeQuery();
+		  if (result1.next() == true)
+		  {
+			  Alert alerts=new Alert(AlertType.WARNING);
+		      alerts.setTitle("Warning Dialog");
+		      alerts.setHeaderText(null);
+		      alerts.setContentText("Credentials already exist!");
+		      alerts.showAndWait();
+		      return;
+
+
+		  }
+		  else {
+
+		  String sql="Insert into Table1(Username, Password, Name, Profession, Resume)" +"values(?,?,?,?,?)";
+		  PreparedStatement q1= connect.prepareStatement(sql);
+		  q1.setString(1,s1);
+		  q1.setString(2,s2);
+		  q1.setString(3, nam);
+		  q1.setString(4, profession);
+		  q1.setString(5, r);
+
+
+		  boolean Status=q1.execute();
+		  // System.out.println(Status);
+		  
+		  Alert alerts=new Alert(AlertType.INFORMATION);
+	        alerts.setTitle("Information Dialog");
+	        alerts.setHeaderText(null);
+	        alerts.setContentText("User Signed Up Successfully!");
+	        alerts.showAndWait();
+
 		  	Stage primaryStage=new Stage();
 			Parent root=FXMLLoader.load(getClass().getResource("Choice.fxml"));
 			Scene scene = new Scene(root);
@@ -30,4 +118,5 @@ public class Signup
 		  
 		}
 
+}
 }

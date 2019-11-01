@@ -1,1 +1,20 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#login1, #signup, #confirm, #con, #wd, #sd, #ml, #ad, #login2
+{	
+	-fx-background-color: #fbcb7b;
+    /*-fx-background-insets: 0,9 9 8 9,9,10,11;*/
+     -fx-background-radius: 70;
+   /* -fx-padding: 15 30 15 40;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);*/
+    
+}
+
+#login1:hover, #signup:hover, #confirm:hover,#con:hover, #wd:hover, #sd:hover, #ml:hover, #ad:hover,#login2:hover
+{	
+	-fx-background-color: #ff8c00;
+   /* -fx-background-insets: 0,9 9 8 9,9,10,11;*/
+    -fx-background-radius: 70;
+   /* -fx-padding: 15 30 15 40;
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);*/
+    
+}
