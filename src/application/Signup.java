@@ -1,5 +1,8 @@
 package application;
 
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -82,8 +85,7 @@ public class Signup
 		      alerts.setHeaderText(null);
 		      alerts.setContentText("Password must be at least 8 characters long!");
 		      alerts.showAndWait();
-		      return;
-			  
+		      return;  
 		  }
 		  String sq2 = "select * from Table1 where Username=?";
 		  PreparedStatement p0 = connect.prepareStatement(sq2);
@@ -108,17 +110,35 @@ public class Signup
 		  q1.setString(2,s2);
 		  q1.setString(3, nam);
 		  q1.setString(4, profession);
-		  q1.setString(5, r);
-
-
-		  boolean Status=q1.execute();
-		  // System.out.println(Status);
-		  
-		  Alert alerts=new Alert(AlertType.INFORMATION);
-	        alerts.setTitle("Information Dialog");
-	        alerts.setHeaderText(null);
-	        alerts.setContentText("User Signed Up Successfully!");
-	        alerts.showAndWait();
+		 /*File f = new File(r);
+		 FileInputStream fis = new FileInputStream(f);
+		 q1.setBinaryStream(5, fis, (int)(f.length()));*/
+		  try
+		  {
+		 File pdfFile = new File(r);
+		 byte[] pdfData = new byte[(int) pdfFile.length()];
+		 DataInputStream dis = new DataInputStream(new FileInputStream(pdfFile));
+		 dis.readFully(pdfData);  // read from file into byte[] array
+		 dis.close();
+		 q1.setBytes(5, pdfData);
+		  }
+		  catch(IOException e44)
+		  {
+			  Alert alerts=new Alert(AlertType.WARNING);
+		      alerts.setTitle("Warning Dialog");
+		      alerts.setHeaderText(null);
+		      alerts.setContentText("File not found!");
+		      alerts.showAndWait();
+		      return;
+		  }
+	
+			 int Status=q1.executeUpdate();
+			 
+			 Alert alerts=new Alert(AlertType.INFORMATION);
+		      alerts.setTitle("Information Dialog");
+		      alerts.setHeaderText(null);
+		      alerts.setContentText("User signed in successfully!");
+		      alerts.showAndWait();
 
 	        Stage primstage = (Stage) con.getScene().getWindow();
 	   		primstage.close();

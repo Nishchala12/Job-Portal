@@ -44,7 +44,7 @@ public class Login {
 	}
 	
 	public void login(ActionEvent e) throws IOException, SQLException
-	{
+	{	Choice c1 = new Choice();
 		String s1 = "";
 		String s2 = "";
 		s1 = username.getText();
@@ -76,6 +76,7 @@ public class Login {
 		}
 		else
 		{
+		
 		System.out.println("User logged in");
 		Alert alerts=new Alert(AlertType.INFORMATION);
         alerts.setTitle("Information Dialog");
@@ -93,9 +94,11 @@ public class Login {
 		
 		Stage primstage = (Stage) login2.getScene().getWindow();
    		primstage.close();
+   		c1.setStr(s1);
 
 		}
 		
+	
 	}
 
 }
