@@ -4,7 +4,9 @@ package application;
 	import java.io.IOException;
 	import java.sql.Connection;
 	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 	import java.util.ArrayList;
 	import java.util.Optional;
 
@@ -57,8 +59,6 @@ package application;
 			{
 				System.out.println(ar[i]);
 			}}
-			
-		
 			
 		
 		
@@ -134,7 +134,6 @@ package application;
 						            
 						        }});
 				 
-				  
 				  t.setLeft(a1);
 				  t.setRight(b);
 				  vb2.getChildren().addAll(t,des);

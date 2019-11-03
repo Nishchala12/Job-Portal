@@ -45,6 +45,10 @@ public class Login {
 	
 	public void login(ActionEvent e) throws IOException, SQLException
 	{	Choice c1 = new Choice();
+		AD ad1 = new AD();
+		WD wd1 = new WD();
+		SD sd1 = new SD();
+		AI ai1 = new AI();
 		String s1 = "";
 		String s2 = "";
 		s1 = username.getText();
@@ -95,7 +99,6 @@ public class Login {
 		Stage primstage = (Stage) login2.getScene().getWindow();
    		primstage.close();
    		c1.setStr(s1);
-
 		}
 		
 	

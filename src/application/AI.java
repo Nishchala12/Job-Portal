@@ -4,7 +4,9 @@ package application;
 	import java.io.IOException;
 	import java.sql.Connection;
 	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 	import java.util.ArrayList;
 	import java.util.Optional;
 
@@ -58,8 +60,7 @@ package application;
 				System.out.println(ar[i]);
 			}}
 			
-		
-			
+		static String u1 = "";
 		
 		
 		public void initialize() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException

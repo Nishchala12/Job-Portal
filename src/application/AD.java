@@ -4,7 +4,9 @@ package application;
 	import java.io.IOException;
 	import java.sql.Connection;
 	import java.sql.DriverManager;
-	import java.sql.SQLException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 	import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
@@ -41,6 +43,7 @@ import java.util.Optional;
 		static String user="root";
 		static String pass="Nishchala123";
 		
+		
 		static int cols=0;
 		public void getInt(int col)
 		{
@@ -59,8 +62,9 @@ import java.util.Optional;
 				System.out.println(ar[i]);
 			}}
 			
+		static String u1 = "";
 		
-			
+		
 		
 		
 		public void initialize() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
@@ -122,19 +126,19 @@ import java.util.Optional;
 							            alerts.setHeaderText(null);
 							            alerts.setContentText("You have applied for this particular job opportunity! Company officials will contact you at the earliest!");
 							            alerts.showAndWait();
-						        	   
-						        	 
-						        	
-						        	String s=a1.getText();
-						        	System.out.println(s);
+							            String s=a1.getText();
+							        	System.out.println(s);
 						        	}
 						        	else {
-						        	   return;
-						        	}
+							        	   return;
+							        	}
 						        	
 						            
 						        }});
 				 
+				  
+		        	
+		        	
 				  
 				  t.setLeft(a1);
 				  t.setRight(b);
