@@ -6,12 +6,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -31,6 +33,7 @@ public class JobController
 	@FXML
 	Button login, signup;
 	
+	
 	static Connection connect=null;
 	static String DatabaseName="student";
 	static String url = "jdbc:mysql://localhost:3306/" + DatabaseName;
@@ -47,6 +50,14 @@ public class JobController
 		label.setWrapText(true);
 		label.setStyle("-fx-font-family: \" Monospaced \"; -fx-font-size: 20; -fx-text-fill: black; -fx-font-weight: bold; -fx-font-style: italic;");
 	}
+	@FXML 
+	ImageView i1= new ImageView();
+	
+	public void screenDestroy1(Event e)
+	{
+		Stage primstage = (Stage) i1.getScene().getWindow();
+		primstage.close();
+	}
 	
 	  public void open1(ActionEvent e) throws IOException
 		{
@@ -55,6 +66,7 @@ public class JobController
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 			primaryStage.show();
 		  
 		}
@@ -66,6 +78,7 @@ public class JobController
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 			primaryStage.show();
 		  
 		}

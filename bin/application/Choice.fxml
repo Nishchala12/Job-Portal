@@ -16,7 +16,7 @@
                   <Image url="file:/C:/Users/Nisha/Desktop/Images/sign.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="83.0" layoutY="40.0" style="-fx-background-color: #ededed;" text="Choose a Specification" textFill="#300202">
+            <Label layoutX="36.0" layoutY="41.0" style="-fx-background-color: #f8f8f8;" text="Choose a Specification">
                <font>
                   <Font name="System Bold Italic" size="30.0" />
                </font>

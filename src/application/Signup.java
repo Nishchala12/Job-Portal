@@ -9,9 +9,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -27,6 +29,8 @@ public class Signup
 {
 	@FXML
 	Button con;
+	@FXML
+	ImageView i2 = new ImageView();
 	@FXML
 	TextField name = new TextField();
 	@FXML
@@ -53,6 +57,12 @@ public class Signup
 		
 	}
 	
+	public void screenDestroy(Event e)
+	{
+		Stage primstage = (Stage) i2.getScene().getWindow();
+		primstage.close();
+	}
+	
 	  public void open1(ActionEvent e) throws IOException, SQLException
 		{
 		  
@@ -77,6 +87,27 @@ public class Signup
 		      alerts.showAndWait();
 		      return;
 		  }
+		  
+		  String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+	                "[a-zA-Z0-9_+&*-]+)*@" + 
+	                "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+	                "A-Z]{2,7}$"; 
+
+			                  
+				Pattern pat = Pattern.compile(emailRegex); 
+				if (!pat.matcher(s1).matches()) 
+				{
+					Alert alerts=new Alert(AlertType.WARNING);
+					   alerts.setTitle("Warning Dialog");
+					   alerts.setHeaderText(null);
+					   alerts.setContentText("Invalid E-Mail Format!");
+					   alerts.showAndWait();
+					   return;
+
+				}
+				else
+				{
+				}
 		  
 		  if(s2.length()<8)
 		  {

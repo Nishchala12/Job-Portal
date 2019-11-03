@@ -12,7 +12,8 @@ import java.sql.SQLException;
 
 	import javafx.collections.FXCollections;
 	import javafx.collections.ObservableList;
-	import javafx.event.EventHandler;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 	import javafx.fxml.FXML;
 	import javafx.geometry.Pos;
 	import javafx.scene.Node;
@@ -23,12 +24,14 @@ import java.sql.SQLException;
 	import javafx.scene.control.Label;
 	import javafx.scene.control.ListView;
 	import javafx.scene.effect.DropShadow;
-	import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.Alert.AlertType;
 	import javafx.scene.input.MouseEvent;
 	import javafx.scene.layout.BorderPane;
 	import javafx.scene.layout.HBox;
 	import javafx.scene.layout.Priority;
 	import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 	public class AI {
 		@FXML
@@ -41,6 +44,8 @@ import java.sql.SQLException;
 		static String url = "jdbc:mysql://localhost:3306/" + DatabaseName;
 		static String user="root";
 		static String pass="Nishchala123";
+		static String username;
+		
 		
 		static int cols=0;
 		public void getInt(int col)
@@ -61,6 +66,15 @@ import java.sql.SQLException;
 			}}
 			
 		static String u1 = "";
+		
+		@FXML 
+		ImageView i7= new ImageView();
+		
+		public void screenDestroy1(Event e)
+		{
+			Stage primstage = (Stage) i7.getScene().getWindow();
+			primstage.close();
+		}
 		
 		
 		public void initialize() throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException
@@ -127,6 +141,13 @@ import java.sql.SQLException;
 						        	
 						        	String s=a1.getText();
 						        	System.out.println(s);
+						        	
+						        	try {
+										getDetails(username,s);
+									} catch (SQLException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 						        	}
 						        	else {
 						        	   return;
@@ -146,6 +167,20 @@ import java.sql.SQLException;
 			  
 				//System.out.println(ar);
 			}
+		public void getDetails(String user, String description) throws SQLException
+		{
+			String sql="Insert into details(Username,Description)" +"values(?,?)";
+			PreparedStatement q1= connect.prepareStatement(sql);
+			q1.setString(1,user);
+			q1.setString(2,description);
+			boolean Status=q1.execute();
+		}
+
+
+		public void getuser(String s1) {
+			// TODO Auto-generated method stub
+			username = s1;
+		}
 			
 		}
 		

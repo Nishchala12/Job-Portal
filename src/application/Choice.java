@@ -10,11 +10,13 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class Choice {
@@ -36,6 +38,15 @@ public class Choice {
 		  connect=DriverManager.getConnection(url,user,pass);
 
 		
+	}
+	
+	@FXML 
+	ImageView i8= new ImageView();
+	
+	public void screenDestroy1(Event e)
+	{
+		Stage primstage = (Stage) i8.getScene().getWindow();
+		primstage.close();
 	}
 	
 	public void setStr(String s) throws SQLException {
@@ -98,12 +109,22 @@ public class Choice {
 		         String columnValue = result1.getString(i);
 		         System.out.println(rsmd.getColumnName(i) +": "+ columnValue );
 		     }*/
-		    	 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
-			     System.out.println(demo);
-			     a[c] = demo;
-			    
-			     c++;    
-
+			 if(u1.equals(str))
+				{
+			    	 demo="Internship Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				}
+				 else
+				 {
+					 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				 }
 		 }
 		 
 		
@@ -117,6 +138,7 @@ public class Choice {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
+		//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 		primaryStage.show();
 
 	     
@@ -166,12 +188,22 @@ public class Choice {
 		         String columnValue = result1.getString(i);
 		         System.out.println(rsmd.getColumnName(i) +": "+ columnValue );
 		     }*/
-		    	 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
-			     System.out.println(demo);
-			     a[c] = demo;
-			    
-			     c++;    
-
+			 if(u1.equals(str))
+				{
+			    	 demo="Internship Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				}
+				 else
+				 {
+					 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				 }
 		 }
 		 
 		
@@ -186,6 +218,7 @@ public class Choice {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
+		//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 		primaryStage.show();
 	}
 	
@@ -233,11 +266,22 @@ public class Choice {
 		         String columnValue = result1.getString(i);
 		         System.out.println(rsmd.getColumnName(i) +": "+ columnValue );
 		     }*/
-		    	 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+			 if(u1.equals(str))
+			{
+		    	 demo="Internship Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
 			     System.out.println(demo);
 			     a[c] = demo;
 			    
-			     c++;    
+			     c++; 
+			}
+			 else
+			 {
+				 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+			     System.out.println(demo);
+			     a[c] = demo;
+			    
+			     c++; 
+			 }
 
 		 }
 		 
@@ -251,6 +295,7 @@ public class Choice {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
+		//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 		primaryStage.show();
 	}
 	
@@ -298,11 +343,22 @@ public class Choice {
 		         String columnValue = result1.getString(i);
 		         System.out.println(rsmd.getColumnName(i) +": "+ columnValue );
 		     }*/
-		    	 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
-			     System.out.println(demo);
-			     a[c] = demo;
-			    
-			     c++;    
+			 if(u1.equals(str))
+				{
+			    	 demo="Internship Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				}
+				 else
+				 {
+					 demo="Job Description: "+result1.getString(2)+"\n Pay: "+result1.getString(3)+"/-\n Company Name: "+result1.getString(6)+"\n Location: "+result1.getString(7);
+				     System.out.println(demo);
+				     a[c] = demo;
+				    
+				     c++; 
+				 } 
 
 		 }
 		 
@@ -316,6 +372,7 @@ public class Choice {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setScene(scene);
+		//primaryStage.resizableProperty().setValue(Boolean.FALSE);
 		primaryStage.show();
 	}
 }

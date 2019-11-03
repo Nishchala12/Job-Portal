@@ -19,7 +19,7 @@
                   <Image url="file:/C:/Users/Nisha/Desktop/Images/sign.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="a" layoutX="47.0" layoutY="26.0" style="-fx-background-color: #ededed;" text="Enter The Required Details" textFill="#300202">
+            <Label fx:id="a" layoutX="58.0" layoutY="33.0" style="-fx-background-color: #f8f8f8;" text="Enter The Required Details">
                <font>
                   <Font name="System Bold Italic" size="30.0" />
                </font>
